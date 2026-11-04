@@ -91,7 +91,7 @@ def conditional_router(state: Dict[str, Any]) -> str:
     """Evaluates the state using ChatOllama's standard property structure."""
     last_message = state["messages"][-1]
     
-    # FIX: Check if the model left behind valid tool calls in the standardized property
+    # Check if the model left behind valid tool calls in the standardized property
     if hasattr(last_message, "tool_calls") and last_message.tool_calls:
         print("-> Router Decision: Tool calls detected. Routing to TOOL NODE.")
         return "call_tools"
